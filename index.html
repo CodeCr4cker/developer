@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Divyanshu Pandey - Portfolio</title>
+  <meta name="description" content="Divyanshu Pandey's personal portfolio.">
+  <meta name="keywords" content="Divyanshu Pandey, portfolio, HTML, CSS, web developer, student">
+  <meta name="author" content="Divyanshu Pandey">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Play:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css">
+  <!-- Firebase scripts -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-database-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-storage-compat.js"></script>
+</head>
+<body style="overflow: hidden;">
+
+  <!-- Loader -->
+  <div id="loader">
+    <div class="spinner"></div>
+    <span>Loading Portfolio...</span>
+  </div>
+
+  <!-- Theme Toggle -->
+  <button id="theme-toggle" aria-label="Toggle dark mode">
+    <span class="icon-sun"><i class="fa-solid fa-sun"></i></span>
+    <span class="icon-moon"><i class="fa-solid fa-moon"></i></span>
+  </button>
+
+  <!-- Back to Top Button -->
+  <button onclick="window.scrollTo({top:0,behavior:'smooth'});" id="back-to-top" aria-label="Back to top"><i class="fa fa-arrow-up"></i></button>
+
+  <!-- Navbar -->
+  <header>
+    <a href="#" class="logo" aria-label="Home">Divyanshu Pandey</a>
+    <button id="menu-btn" class="fa fa-bars" aria-label="Open menu"></button>
+    <nav class="navbar" aria-label="Main menu">
+      <ul>
+        <li><a href="#home" tabindex="0">Home</a></li>
+        <li><a href="#about" tabindex="0">About</a></li>
+        <li><a href="#skills" tabindex="0">Skills</a></li>
+        <li><a href="#projects" tabindex="0">Projects</a></li>
+        <li><a href="#education" tabindex="0">Education</a></li>
+        <li><a href="#achievements" tabindex="0">Achievements</a></li>
+        <li><a href="#testimonials" tabindex="0">Testimonials</a></li>
+        <li><a href="#blog" tabindex="0">Blog</a></li>
+        <li><a href="#contact" tabindex="0">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- All your original content/sections as in your code (Home, About, Skills, Projects, etc.) -->
+  <!-- ...Keep all your original HTML from <section id="home"> ... to the contact form, testimonials, etc... -->
+
+  <!-- Footer -->
+  <footer class="footer-section bg-black">
+    <div class="container">
+      <pre>© <span id="year"></span> Divyanshu Pandey</pre>
+      <div class="footer-social">
+        <a href="https://github.com/Divyanshu5520" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+      </div>
+      <button id="admin-login-btn">Admin Login</button>
+    </div>
+  </footer>
+
+  <!-- Admin Login Modal -->
+  <div id="admin-modal">
+    <form id="admin-login-form">
+      <h2>Admin Login</h2>
+      <label for="admin-phone">Phone Number</label>
+      <input type="tel" id="admin-phone" required pattern="[0-9]{10,15}" placeholder="+91XXXXXXXXXX">
+      <div id="recaptcha-container"></div>
+      <button type="button" id="send-otp-btn" class="primary-btn">Send OTP</button>
+      <label for="admin-otp">6-digit OTP</label>
+      <input type="text" id="admin-otp" required pattern="[0-9]{6}" maxlength="6" placeholder="6-digit OTP">
+      <button type="submit" class="primary-btn">Login</button>
+      <button type="button" id="admin-close">Close</button>
+      <p id="admin-login-status"></p>
+    </form>
+  </div>
+
+  <!-- Admin Dashboard Modal -->
+  <div id="admin-dashboard">
+    <div class="dashboard-container">
+      <div class="dashboard-header">
+        <h2>Admin Dashboard</h2>
+        <button id="admin-logout">Logout</button>
+      </div>
+      <div id="dashboard-content">
+        <!-- Admin controls are dynamically rendered here -->
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
