@@ -104,17 +104,27 @@ document.getElementById('contact-form').onsubmit = function(e) {
 document.getElementById('year').textContent = new Date().getFullYear();
 
 // === Firebase Init ===
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  // Add your Firebase config here
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  databaseURL: "YOUR_DB_URL",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_BUCKET",
-  messagingSenderId: "YOUR_MSGID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyB5B4QX1tUIw0lSYsjy-HW7pvHOe4nMmL4",
+  authDomain: "website-1f91d.firebaseapp.com",
+  projectId: "website-1f91d",
+  storageBucket: "website-1f91d.firebasestorage.app",
+  messagingSenderId: "176653839690",
+  appId: "1:176653839690:web:55bec54b6f2d3895c9e5b3",
+  measurementId: "G-F5TKYBL0R2"
 };
-firebase.initializeApp(firebaseConfig);
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 const db = firebase.database();
 const storage = firebase.storage();
 const auth = firebase.auth();
