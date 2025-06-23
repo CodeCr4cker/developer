@@ -105,30 +105,30 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 // === Firebase Init ===
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+  // Import from CDN
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-analytics.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+  import { getDatabase } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-database.js";
+  import { getStorage } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-storage.js";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyB5B4QX1tUIw0lSYsjy-HW7pvHOe4nMmL4",
-  authDomain: "website-1f91d.firebaseapp.com",
-  projectId: "website-1f91d",
-  storageBucket: "website-1f91d.firebasestorage.app",
-  messagingSenderId: "176653839690",
-  appId: "1:176653839690:web:55bec54b6f2d3895c9e5b3",
-  measurementId: "G-F5TKYBL0R2"
-};
+  // Your Firebase Config
+  const firebaseConfig = {
+    apiKey: "AIzaSyB5B4QX1tUIw0lSYsjy-HW7pvHOe4nMmL4",
+    authDomain: "website-1f91d.firebaseapp.com",
+    projectId: "website-1f91d",
+    storageBucket: "website-1f91d.appspot.com", // ✅ fixed
+    messagingSenderId: "176653839690",
+    appId: "1:176653839690:web:55bec54b6f2d3895c9e5b3",
+    measurementId: "G-F5TKYBL0R2"
+  };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-const db = firebase.database();
-const storage = firebase.storage();
-const auth = firebase.auth();
-
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+  const auth = getAuth(app);
+  const database = getDatabase(app);
+  const storage = getStorage(app);
 // === Admin Login & Dashboard ===
 const adminBtn = document.getElementById('admin-login-btn');
 const adminModal = document.getElementById('admin-modal');
