@@ -1,465 +1,174 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
-    <title>Alex Chen - Full Stack Developer</title>
-  <meta name="description" content="Divyanshu Pandey's personal portfolio.">
-  <meta name="keywords" content="Divyanshu Pandey, portfolio, HTML, CSS, web developer, student">
-  <meta name="author" content="Divyanshu Pandey">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="styles.css">
-    <style>
-    
-    </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Divyanshu Pandey</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Day/Night Theme Switcher (Header) -->
-    <div class="theme-toggle" id="themeToggle" title="Switch theme">
-        <span>🌞</span>
-        <div class="slider"></div>
-        <span>🌜</span>
+  <div class="sidebar" id="sidebar">
+    <a href="#home" onclick="toggleSidebar()">Home</a>
+    <a href="#profile" onclick="toggleSidebar()">Profile</a>
+    <a href="https://rawcdn.githack.com/Divyanshu-85/Required-Document/d81aa8e0f0cd6de1277fad4ca97a1a541048130d/Best%20login%20form.html" onclick="toggleSidebar()">Login</a>
+    <a href="#services" onclick="toggleSidebar()">Services</a>
+    <a href="#contact" id="ContactLink" onclick="toggleSidebar()">Contact</a>
+    <a href="#about" id="aboutLink" onclick="toggleSidebar()">About</a>
+    <button class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()">🌙 Toggle Theme</button>
+    <div class="chat-icon" onclick="toggleChat()">
+      <img src="https://www.shutterstock.com/image-vector/robot-on-white-chatbot-icon-bot-786029302" class="pic1" alt="Chat Icon">
     </div>
-    <!-- Loader -->
-    <div class="loader-container" id="loader">
-        <div class="loader"></div>
-        <div class="loader-text">Loading Portfolio...</div>
-        <div class="loader-progress">
-            <div class="loader-progress-bar"></div>
+  </div>
+  <button class="sidebar-toggle" id="tog" onclick="toggleSidebar()">☰ Menu</button>
+
+  <section class="top-background">
+    <div class="container">
+      <div class="row-conatainer">
+        <div class="content">
+          <h3 class="write3">Hello !</h3>
+          <h1 class="write4">I'am Divyanshu Pandey</h1>
+          <h2 class="write5">Explore the journey of Coding</h2>
+          <p class="boss2">Hello! I'm Divyanshu Pandey, a Class 11<sup>th</sup> student passionate about CSS and HTML.</p>
         </div>
+        <div class="img-container">
+          <img src="https://github.com/Divyanshu-85/Required-Document/blob/main/me.jpg" class="pic" alt="Profile Picture of Divyanshu Pandey">
+        </div>
+      </div>
     </div>
-    <!-- Main Content -->
-    <div class="main-content" id="mainContent">
-        <header>
-            <nav class="container">
-                <a href="#" class="logo">Divyanshu Pandey</a>
-                <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#stats">Stats</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#timeline">Experience</a></li>
-                    <li><a href="#certificates">Certificates</a></li>
-                    <li><a href="#blog">Blog</a></li>
-                    <li><a href="#testimonial">Testimonial</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <h1 id="heroTitle"><span class="typing-cursor"></span></h1>
-                        <p class="subtitle">Crafting Digital Experiences</p>
-                        <p>I'm a passionate full-stack developer with 5+ years of experience building scalable web applications. I specialize in React, Node.js, and modern web technologies.</p>
-                        <div class="cta-buttons">
-                            <a href="#projects" class="btn btn-primary">View My Work</a>
-                            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                            <a href="resume.pdf" download class="resume-btn">⬇️ Download Resume</a>
-                        </div>
-                    </div>
-                    <div class="hero-image">
-                        <div class="profile-card">
-                            <div class="profile-img">
-                                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alex Chen Developer" loading="lazy">
-                            </div>
-                            <h3>Divyanshu Pandey</h3>
-                            <p>Senior Full Stack Developer</p>
-                            <p>San Francisco, CA</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Animated Statistics Counter Section -->
-        <section id="stats" class="stats-section">
-            <div class="container">
-                <div class="stats-grid">
-                    <div class="stat-box">
-                        <div class="stat-number" data-count="5">0</div>
-                        <div class="stat-label">Years Experience</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number" data-count="45">0</div>
-                        <div class="stat-label">Projects Completed</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number" data-count="10">0</div>
-                        <div class="stat-label">Certifications</div>
-                    </div>
-                    <div class="stat-box">
-                        <div class="stat-number" data-count="12">0</div>
-                        <div class="stat-label">Happy Clients</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="skills" class="skills">
-            <div class="container">
-                <h2 class="section-title">Skills & Expertise</h2>
-                <div class="skills-container">
-                    <div class="skills-grid">
-                        <div class="skill-card fade-in">
-                            <div class="skill-icon">⚛️</div>
-                            <h3>Frontend Development</h3>
-                            <p>React, Vue.js, JavaScript, TypeScript, HTML5, CSS3, Tailwind CSS</p>
-                        </div>
-                        <div class="skill-card fade-in">
-                            <div class="skill-icon">🚀</div>
-                            <h3>Backend Development</h3>
-                            <p>Node.js, Express, Python, Django, REST APIs, GraphQL</p>
-                        </div>
-                        <div class="skill-card fade-in">
-                            <div class="skill-icon">💾</div>
-                            <h3>Database & Cloud</h3>
-                            <p>MongoDB, PostgreSQL, AWS, Docker, Kubernetes, CI/CD</p>
-                        </div>
-                        <div class="skill-card fade-in">
-                            <div class="skill-icon">🎨</div>
-                            <h3>UI/UX Design</h3>
-                            <p>Figma, Adobe XD, Responsive Design, Accessibility, User Research</p>
-                        </div>
-                    </div>
-                    <div class="progress-section">
-                        <h3>Technical Proficiency</h3>
-                        <div class="progress-item">
-                           <!-- <div class="progress-label">
-                                <span>C++</span>
-                                <span>95%</span>
-                            </div> -->
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="95%"></div>
-                            </div>
-                        </div>
-                        <div class="progress-item">
-                            <div class="progress-label">
-                                <span>React js</span>
-                                <span>30%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="90%"></div>
-                            </div>
-                        </div>
-                        <div class="progress-item">
-                            <div class="progress-label">
-                                <span>Html</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="88%"></div>
-                            </div>
-                        </div>
-                        <div class="progress-item">
-                            <div class="progress-label">
-                                <span>Python</span>
-                                <span>65%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="85%"></div>
-                            </div>
-                        </div>
-                        <div class="progress-item">
-                            <div class="progress-label">
-                                <span>CSS</span>
-                                <span>70%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="80%"></div>
-                            </div>
-                        </div>
-                        <div class="progress-item">
-                            <div class="progress-label">
-                                <span>JAVASCRIPT</span>
-                                <span>75%</span>
-                            </div>
-                            <div class="progress-bar">
-                                <div class="progress-fill" data-width="75%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Timeline / Experience Section -->
-        <section id="timeline" class="timeline-section">
-            <div class="container">
-                <h2 class="timeline-title">Experience Timeline</h2>
-                <div class="timeline">
-                    <div class="timeline-item fade-in">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2023 - Present</div>
-                        <div class="timeline-role">Senior Full Stack Developer</div>
-                        <div class="timeline-company">TechNova, San Francisco</div>
-                        <div class="timeline-desc">Leading a team of developers to deliver high-availability SaaS products and optimize cloud architecture for scalability.</div>
-                    </div>
-                    <div class="timeline-item fade-in">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2020 - 2023</div>
-                        <div class="timeline-role">Full Stack Engineer</div>
-                        <div class="timeline-company">StartUpX</div>
-                        <div class="timeline-desc">Built modern web applications with React, Node.js, and microservices; improved deployment flow via CI/CD and Docker.</div>
-                    </div>
-                    <div class="timeline-item fade-in">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-date">2018 - 2020</div>
-                        <div class="timeline-role">Front-End Developer</div>
-                        <div class="timeline-company">WebMakers Agency</div>
-                        <div class="timeline-desc">Designed and implemented responsive UIs for e-commerce and enterprise dashboards; collaborated closely with designers.</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Project Filtering Section -->
-        <section id="projects" class="projects">
-            <div class="container">
-                <h2 class="section-title">Featured Projects</h2>
-                <div class="project-filters">
-                    <button class="project-filter-btn active" data-filter="all">All</button>
-                    <button class="project-filter-btn" data-filter="React">React</button>
-                    <button class="project-filter-btn" data-filter="Vue.js">Vue.js</button>
-                    <button class="project-filter-btn" data-filter="Node.js">Node.js</button>
-                    <button class="project-filter-btn" data-filter="Python">Python</button>
-                    <button class="project-filter-btn" data-filter="AWS">AWS</button>
-                </div>
-                <div class="projects-grid" id="projectsGrid">
-                    <div class="project-card fade-in" data-tags="React Node.js MongoDB Stripe AWS">
-                        <div class="project-image ecommerce">E-Commerce Platform</div>
-                        <div class="project-content">
-                            <h3 class="project-title">Full-Stack E-Commerce Platform</h3>
-                            <p class="project-description">A comprehensive e-commerce solution with real-time inventory management, secure payment processing, admin dashboard, and customer analytics. Features include product catalog, shopping cart, order tracking, and multi-vendor support.</p>
-                            <div class="project-tags">
-                                <span class="tag">React</span>
-                                <span class="tag">Node.js</span>
-                                <span class="tag">MongoDB</span>
-                                <span class="tag">Stripe</span>
-                                <span class="tag">AWS</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#">🔗 Live Demo</a>
-                                <a href="#">📂 GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card fade-in" data-tags="Vue.js Express Socket.io PostgreSQL Redis">
-                        <div class="project-image taskflow">TaskFlow Pro</div>
-                        <div class="project-content">
-                            <h3 class="project-title">Collaborative Task Management</h3>
-                            <p class="project-description">An advanced project management tool with real-time collaboration, kanban boards, time tracking, team chat, file sharing, and automated workflow triggers. Supports agile methodologies and integrates with popular tools.</p>
-                            <div class="project-tags">
-                                <span class="tag">Vue.js</span>
-                                <span class="tag">Express</span>
-                                <span class="tag">Socket.io</span>
-                                <span class="tag">PostgreSQL</span>
-                                <span class="tag">Redis</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#">🔗 Live Demo</a>
-                                <a href="#">📂 GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-card fade-in" data-tags="React D3.js Python FastAPI TensorFlow">
-                        <div class="project-image analytics">Analytics Dashboard</div>
-                        <div class="project-content">
-                            <h3 class="project-title">Data Visualization Platform</h3>
-                            <p class="project-description">Interactive business intelligence dashboard with real-time data processing, custom chart builder, automated reporting, machine learning insights, and multi-tenant architecture for enterprise clients.</p>
-                            <div class="project-tags">
-                                <span class="tag">React</span>
-                                <span class="tag">D3.js</span>
-                                <span class="tag">Python</span>
-                                <span class="tag">FastAPI</span>
-                                <span class="tag">TensorFlow</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#">🔗 Live Demo</a>
-                                <a href="#">📂 GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Blog Section -->
-        <section id="blog" class="blog-section">
-            <div class="container">
-                <h2 class="blog-title">Latest Blog Posts</h2>
-                <div class="blog-grid">
-                    <div class="blog-card fade-in">
-                        <div class="blog-card-title">Building Scalable React Apps in 2025</div>
-                        <div class="blog-card-meta">June 2025 • 6 min read</div>
-                        <div class="blog-card-desc">Explore best practices for structuring large React applications, optimizing performance, and leveraging new React features.</div>
-                        <a href="#" class="blog-card-link">Read More →</a>
-                    </div>
-                    <div class="blog-card fade-in">
-                        <div class="blog-card-title">Node.js API Design Patterns</div>
-                        <div class="blog-card-meta">May 2025 • 8 min read</div>
-                        <div class="blog-card-desc">A guide to API versioning, error handling, and best practices for RESTful Node.js backends.</div>
-                        <a href="#" class="blog-card-link">Read More →</a>
-                    </div>
-                    <div class="blog-card fade-in">
-                        <div class="blog-card-title">Effective DevOps with AWS & Docker</div>
-                        <div class="blog-card-meta">May 2025 • 5 min read</div>
-                        <div class="blog-card-desc">How to streamline deployments, automate with CI/CD, and manage scalable cloud infrastructure as a developer.</div>
-                        <a href="#" class="blog-card-link">Read More →</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <main>
-            <section id="certificates" class="certificates">
-                <div class="container">
-                    <h2 class="section-title">Certifications & Achievements</h2>
-                    <div class="certificates-grid">
-                        <div class="certificate-card fade-in">
-                            <div class="certificate-icon">🏆</div>
-                            <h3 class="certificate-title">AWS Certified Solutions Architect</h3>
-                            <p class="certificate-issuer">Amazon Web Services</p>
-                            <p class="certificate-date">2024</p>
-                        </div>
-                        <div class="certificate-card fade-in">
-                            <div class="certificate-icon">⚛️</div>
-                            <h3 class="certificate-title">React Professional Developer</h3>
-                            <p class="certificate-issuer">Meta (Facebook)</p>
-                            <p class="certificate-date">2023</p>
-                        </div>
-                        <div class="certificate-card fade-in">
-                            <div class="certificate-icon">🚀</div>
-                            <h3 class="certificate-title">Full Stack Web Development</h3>
-                            <p class="certificate-issuer">freeCodeCamp</p>
-                            <p class="certificate-date">2023</p>
-                        </div>
-                        <div class="certificate-card fade-in">
-                            <div class="certificate-icon">🎯</div>
-                            <h3 class="certificate-title">Google Cloud Professional</h3>
-                            <p class="certificate-issuer">Google Cloud Platform</p>
-                            <p class="certificate-date">2024</p>
-                        </div>
-                        <div class="certificate-card fade-in">
-                            <div class="certificate-icon">🔐</div>
-                            <h3 class="certificate-title">Cybersecurity Fundamentals</h3>
-                            <p class="certificate-issuer">IBM</p>
-                            <p class="certificate-date">2023</p>
-                        </div>
-                        <div class="certificate-card fade-in">
-                            <div class="certificate-icon">📊</div>
-                            <h3 class="certificate-title">Data Science & Machine Learning</h3>
-                            <p class="certificate-issuer">Coursera</p>
-                            <p class="certificate-date">2024</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- Testimonial Section with Carousel -->
-            <section id="testimonial" class="testimonial-section">
-                <div class="container">
-                    <h2 class="testimonial-title">What People Say</h2>
-                    <div class="testimonial-carousel" id="testimonialCarousel">
-                        <div class="testimonial-card fade-in">
-                            <div class="testimonial-quote">
-                                “Alex is one of the most talented full-stack engineers I’ve worked with. His attention to detail, creative solutions, and ability to deliver on time have been invaluable to our team. Highly recommended for any project!”
-                            </div>
-                            <div class="testimonial-author">
-                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Jessica Lee" class="testimonial-avatar" />
-                                <div class="testimonial-author-info">
-                                    <div class="testimonial-author-name">Jessica Lee</div>
-                                    <div class="testimonial-author-role">Product Manager, InnovateX</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-card fade-in" style="display: none;">
-                            <div class="testimonial-quote">
-                                “Working with Alex was a pleasure. The project was delivered ahead of schedule, and the quality exceeded our expectations.”
-                            </div>
-                            <div class="testimonial-author">
-                                <img src="https://randomuser.me/api/portraits/men/54.jpg" alt="Michael Tan" class="testimonial-avatar" />
-                                <div class="testimonial-author-info">
-                                    <div class="testimonial-author-name">Michael Tan</div>
-                                    <div class="testimonial-author-role">CTO, FinTech Hub</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="testimonial-card fade-in" style="display: none;">
-                            <div class="testimonial-quote">
-                                “Alex’s UI/UX instincts are impeccable and his code is rock solid. He’s my go-to for all future web projects.”
-                            </div>
-                            <div class="testimonial-author">
-                                <img src="https://randomuser.me/api/portraits/women/23.jpg" alt="Priya Sharma" class="testimonial-avatar" />
-                                <div class="testimonial-author-info">
-                                    <div class="testimonial-author-name">Priya Sharma</div>
-                                    <div class="testimonial-author-role">Founder, EduNext</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-dots" id="testimonialDots"></div>
-                </div>
-            </section>
-            <section id="contact" class="contact">
-                <div class="container">
-                    <h2 class="section-title">Let's Work Together</h2>
-                    <div class="contact-content">
-                        <div class="contact-info">
-                            <h3>Get In Touch</h3>
-                            <p>I'm always interested in hearing about new opportunities and exciting projects. Let's discuss how we can work together!</p>
-                            <div class="contact-details">
-                                <div class="contact-item">
-                                    <span>📧</span>
-                                    <span>alex.chen@example.com</span>
-                                </div>
-                                <div class="contact-item">
-                                    <span>📱</span>
-                                    <span>+1 (555) 123-4567</span>
-                                </div>
-                                <div class="contact-item">
-                                    <span>📍</span>
-                                    <span>San Francisco, CA</span>
-                                </div>
-                                <div class="contact-item">
-                                    <span>💼</span>
-                                    <span>linkedin.com/in/alexchen</span>
-                                </div>
-                            </div>
-                            <!-- Embedded Interactive Map -->
-                            <iframe class="contact-map" src="https://www.openstreetmap.org/export/embed.html?bbox=-122.511%2C37.704%2C-122.381%2C37.83&amp;layer=mapnik" allowfullscreen="" loading="lazy" title="San Francisco Map"></iframe>
-                        </div>
-                        <form class="contact-form">
-                            <div class="form-group">
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" placeholder="Your Name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Send Message</button>
-                        </form>
-                    </div>
-                </div>
-            </section>
-        </main>
-        <footer>
-            <div class="container">
-                <p>&copy; 2025 Alex Chen. All rights reserved. Built with passion and modern web technologies.</p>
-                <!-- Footer theme toggle -->
-                <div class="footer-theme-toggle">
-                    <div class="theme-toggle" id="footerThemeToggle" title="Switch theme">
-                        <span>🌞</span>
-                        <div class="slider"></div>
-                        <span>🌜</span>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- Back to Top Button -->
-        <div id="backToTop" title="Back to Top">↑</div>
+  </section>
+  <br> 
+
+  <div class="chat-container" id="chat-container">
+    <div class="chatbox" id="chatbox"></div>
+    <div class="quick-replies" id="quick-replies">
+      <button class="msg" onclick="sendQuickReply('Tell me a joke')">Some joke</button>
+      <button class="msg" onclick="sendQuickReply('Fun fact')">Fun fact</button>
+      <button class="msg" onclick="sendQuickReply('Help')">Help</button>
     </div>
-  <!-- JavaScript for features -->
-  <script src="scripts.js"></script>
+    <div style="display: flex; align-items: center; gap: 0.3rem;">
+      <input type="text" id="userInput" placeholder="Type your message...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+    <div class="typing-indicator" id="typing-indicator" style="display: none;">Chatbot is typing...</div>
+  </div>
+
+  <!-- About Section with Magic Doors and Book -->
+  <div class="king">
+    <div id="aboutDiv" class="hidden">
+      <div class="door-container">
+        <div class="door left-door"><img src="https://github.com/Divyanshu-85/Required-Document/blob/main/2.jpg" class="cover1" id="coverleft1"> </div>
+        <div class="door right-door"><img src="https://github.com/Divyanshu-85/Required-Document/blob/main/1.jpg" class="cover1" id="coverright1"></div>
+        <div id="Img" class="hidden">
+          <img src="./magical_files/gatemen.png" alt="Gateman" class="gateman" id="gateman"> 
+        </div>
+        <div class="door-content" id="doorContent">
+          <div class="click">Click me</div>
+        </div>
+      </div>
+      <div class="main">
+        <div class="login-container" id="loginForm">
+          <h4 class="horror">I am Devil</h4>
+          <p id="question" class="Q"></p>
+          <input type="text" id="answer" class="ans" placeholder="Enter your answer" required="">
+          <button onclick="checkAnswer()" class="submitAns">Submit</button>
+          <p id="message"></p>
+        </div>
+        <div class="flash" id="flashEffect"></div>
+        <div class="hidden-content" id="hiddenContent">
+          <div class="bookbox">
+            <div class="book">
+              <div class="flipbook centered" id="flipbook">
+                <div class="leaf" style="transform: translate3d(0px, 0px, 0px);">
+                  <div class="page front title external" style="background-color:#8d99ae; display: flex; align-items: center; justify-content: center;">
+                    <h1 style="font-size: 2em; color: #fff;">
+                      <img src="https://github.com/Divyanshu-85/Required-Document/blob/main/front.jpg?raw=true" class="devil">
+                    </h1>
+                  </div>
+                  <div class="page back" style="background-color:#2a9d8f;">
+                    <div class="pageNumber">i</div>
+                    <img src="https://github.com/Divyanshu-85/Required-Document/blob/main/IMG_20241013_124219.jpg" class="itz-me" alt="" style="width:102%">
+                  </div>
+                </div>
+                <div class="leaf" style="transform: translate3d(0px, 0px, -1px);">
+                  <div class="page front" style="background-color:#2a9d8f;">
+                    <div class="pageNumber">iii</div>
+                    <h2>Contents</h2>
+                    <div class="contents-row">
+                      <div class="text">Introduction</div>
+                      <div class="spacer"></div>
+                      <div class="text">1</div>
+                    </div>
+                    <div class="contents-row">
+                      <div class="text">Passion</div>
+                      <div class="spacer"></div>
+                      <div class="text">3</div>
+                    </div>
+                  </div>
+                  <div class="page back" style="background-color:#e9c46a;">
+                    <div class="pageNumber">1</div>
+                    <h2 class="write1">Introduction</h2>
+                    <p class="write">Hello! My name is Divyanshu Pandey, and I’m excited to introduce myself. I am 16 years old and currently live in Naini Prayagraj. I have a background in programming and coding, and I’m passionate about it.</p>
+                    <h1 class="write1">Shayari</h1>
+                    <p class="write">प्रोग्रामिंग का जादू, समझ पाना है मुश्किल।
+                      कोड के हर अल्गोरिदम में, छिपा है एक नज़दीक सफर का सिलसिला।</p>
+                    <p class="write">लूप्स और कंडीशंस में, खोई रहती है जिंदगी।
+                      कोड के हर पंक्ति में, मिलती है नई सच्चाई।</p>
+                    <p class="write">कीबोर्ड की आवाज़ में, छिपी है मेरी कहानी।
+                      डाटा के इस सागर में, खोजते हैं सपनों की पानी।</p>
+                  </div>
+                </div>
+                <div class="leaf" style="transform: translate3d(0px, 0px, -2px);">
+                  <div class="page front" style="background-color:#e9c46a;">
+                    <div class="pageNumber">2</div>
+                    <p class="write">साइबर दुनिया की रौशनी में, खुद को ढूंढता हूँ।
+                      हर प्रोग्राम के साथ, एक नई ज़िंदगी बनाता हूँ।</p>
+                    <br>
+                    <p class="write">डिग्रीया तो तालीम के खर्चों की रसीदें है 
+                      <br>इल्म वो है जो किरदार में झलकता है.... </p>
+                  </div>
+                  <div class="page back" style="background-color:#f4a261;">
+                    <div class="pageNumber">3</div>
+                    <h2>Passion</h2>
+                    <p>कोड लिखते हैं जब हम, जैसे रचते हैं कोई गीत,<br>हर सिम्पल फंक्शन में छुपा है एक गहरा मीत।</p>
+                    <br>
+                    <p>Signature....<br>Divyanshu</p>
+                  </div>
+                  <div class="page back external" style="background-color:#8d99ae; display: flex; align-items: center; justify-content: center;">
+                    <h1 style="font-size: 2em; color: #fff;">
+                      <img src="https://github.com/Divyanshu-85/Required-Document/blob/main/back.jpg" class="devil">
+                    </h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- hidden-content -->
+      </div><!-- main -->
+    </div><!-- aboutDiv -->
+  </div><!-- king -->
+
+  <div id="ContactDiv" class="hidden">
+    <section class="section">
+      <div class="container">
+        <div class="column-container">
+          <div class="content">
+            <h1 class="contact-">Get in Touch</h1>
+          </div>
+          <form>
+            <input type="text" placeholder="Username" required>
+            <input type="text" placeholder="Phone Number" required>
+            <input type="email" placeholder="Email Address" required>
+            <textarea placeholder="Type Your message here" rows="6" required></textarea>
+            <input type="submit" value="Send Message" class="primary-btn">
+          </form>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer class="footer-section bg-black">
+    <div class="container">
+      <pre class="com">© Divyanshu Pandey</pre>
+    </div>
+  </footer>
+  <script src="script.js"></script>
 </body>
 </html>
