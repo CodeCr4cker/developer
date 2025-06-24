@@ -8,12 +8,12 @@
   "description": "Divyanshu Pandey is a developer.",
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "https://raw.githubusercontent.com/CodeCr4cker/developer/main/image/logo.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "icon-512.png",
+      "src": "https://raw.githubusercontent.com/CodeCr4cker/developer/main/image/logo.png",
       "sizes": "512x512",
       "type": "image/png"
     }
