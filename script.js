@@ -18,7 +18,7 @@ window.onload = function () {
                 console.error("Loader functions error:", err);
             }
         }, 300);
-    }, 3000);
+    }, 2000);
 };
 
 
