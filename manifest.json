@@ -1,7 +1,7 @@
 {
   "name": "Web Developer Portfolio",
   "short_name": "Portfolio",
-  "start_url": ".",
+  "start_url": "/developer/",
   "display": "standalone",
   "background_color": "#f4f4f4",
   "theme_color": "#007bff",
