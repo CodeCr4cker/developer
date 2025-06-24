@@ -1,16 +1,26 @@
 // Loader
-window.onload = function() {
+window.onload = function () {
+    const loader = document.getElementById('loader-bg');
+    const content = document.getElementById('main-content');
+
     setTimeout(() => {
-        document.getElementById('loader-bg').style.opacity = '0';
+        if (loader) loader.style.opacity = '0';
+
         setTimeout(() => {
-            document.getElementById('loader-bg').style.display = 'none';
-            document.getElementById('main-content').style.display = 'block';
-            animateProgressBars();
-            animateCounters();
-            drawRadar();
+            if (loader) loader.style.display = 'none';
+            if (content) content.style.display = 'block';
+
+            try {
+                if (typeof animateProgressBars === 'function') animateProgressBars();
+                if (typeof animateCounters === 'function') animateCounters();
+                if (typeof drawRadar === 'function') drawRadar();
+            } catch (err) {
+                console.error("Loader functions error:", err);
+            }
         }, 300);
     }, 3000);
 };
+
 
 // Theme Toggle (light, dark, auto)
 const themeBtn = document.getElementById('theme-toggle');
