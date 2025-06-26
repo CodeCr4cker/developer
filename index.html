@@ -1,156 +1,386 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hacker Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
-  <!-- QRious for QR code generation -->
-  <script src="https://cdn.jsdelivr.net/npm/qrious/dist/qrious.min.js"></script>
-</head>
-<body class="theme-green">
-  <canvas id="rain-canvas"></canvas>
-  
-  <!-- Neon Animated Navigation Menu -->
-  <nav id="nav">
-    <ul>
-      <li><a href="#terminal-section">Terminal</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#timeline">Timeline</a></li>
-      <li><a href="#stats">Stats</a></li>
-      <li><a href="#achievements">Achievements</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li>
-        <button id="theme-toggle" title="Toggle Theme">🌙</button>
-        <button id="music-toggle" title="Toggle Music">🔊</button>
-      </li>
-    </ul>
-  </nav>
-  
-  <!-- Animated Avatar with Glitch Effect -->
-  <header id="header">
-    <div class="avatar-glitch">
-      <img src="assets/avatar.png" alt="Avatar" id="avatar">
-      <div class="glitch" id="avatar-glitch"></div>
-    </div>
-    <h1 id="typewriter"></h1>
-    <div class="cursor"></div>
-  </header>
-  
-  <!-- Live Terminal/Console -->
-  <section id="terminal-section">
-    <div id="terminal"></div>
-    <input type="text" id="terminal-input" autocomplete="off" placeholder="Type 'help' and press enter...">
-  </section>
-  
-  <main>
-    <section id="about">
-      <h2 class="glitch-title">About Me</h2>
-      <p>I am a passionate full-stack developer with a love for clean code and modern design.</p>
-    </section>
-    <section id="skills">
-      <h2 class="glitch-title">Skills</h2>
-      <div class="progress-bar-group">
-        <label>HTML</label>
-        <div class="progress-bar"><div class="progress-bar-fill" data-width="90%"></div></div>
-        <label>CSS</label>
-        <div class="progress-bar"><div class="progress-bar-fill" data-width="85%"></div></div>
-        <label>JavaScript</label>
-        <div class="progress-bar"><div class="progress-bar-fill" data-width="80%"></div></div>
-      </div>
-    </section>
-    <section id="projects">
-      <h2 class="glitch-title">Projects</h2>
-      <div class="project-cards">
-        <div class="project-card" tabindex="0">
-          <h3>Portfolio Website</h3>
-          <p>A showcase of my work and skills.</p>
-        </div>
-        <div class="project-card" tabindex="0">
-          <h3>Chat App</h3>
-          <p>Realtime messaging with WebSockets.</p>
-        </div>
-        <div class="project-card" tabindex="0">
-          <h3>Task Manager</h3>
-          <p>Manage your tasks efficiently.</p>
-        </div>
-      </div>
-    </section>
-    <section id="timeline">
-      <h2 class="glitch-title">Timeline</h2>
-      <div class="timeline">
-        <div class="timeline-entry">
-          <span class="timeline-dot"></span>
-          <div class="timeline-content">
-            <h3>2021: Started Web Dev</h3>
-            <p>Learned HTML, CSS, JS</p>
-          </div>
-        </div>
-        <div class="timeline-entry">
-          <span class="timeline-dot"></span>
-          <div class="timeline-content">
-            <h3>2022: Built Chat App</h3>
-            <p>Realtime messaging project</p>
-          </div>
-        </div>
-        <div class="timeline-entry">
-          <span class="timeline-dot"></span>
-          <div class="timeline-content">
-            <h3>2023: Joined ABC Corp</h3>
-            <p>Full-stack developer role</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="stats">
-      <h2 class="glitch-title">Stats</h2>
-      <ul id="stats-list">
-        <li>Lines of code: <span id="loc">0</span></li>
-        <li>Cups of coffee: <span id="coffee">0</span></li>
-        <li>GitHub Contributions: <span id="github-contribs">0</span></li>
-      </ul>
-      <div id="skill-chart"></div>
-    </section>
-    <section id="achievements">
-      <h2 class="glitch-title">Achievements</h2>
-      <div id="badges">
-        <!-- Badges will be added by JS -->
-      </div>
-    </section>
-    <section id="contact">
-      <h2 class="glitch-title">Contact Me</h2>
-      <form id="contact-form">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" placeholder="Your Message..." required></textarea>
-        <button type="submit">Send</button>
-      </form>
-      <div id="encryption-animation"></div>
-      <div id="qr-container">
-        <canvas id="qr-canvas" width="120" height="120"></canvas>
-        <div id="qr-glitch"></div>
-      </div>
-    </section>
-    <section id="resume">
-      <h2 class="glitch-title">Resume</h2>
-      <button id="download-resume">Download Encrypted Resume</button>
-      <div id="resume-unlock" style="display:none;">
-        <p>Enter unlock code:</p>
-        <input type="text" id="resume-code-input">
-        <button id="resume-unlock-btn">Unlock</button>
-        <span id="resume-feedback"></span>
-      </div>
-    </section>
-  </main>
-  
-  <audio id="beep-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-typewriter-click-1123.mp3" preload="auto"></audio>
-  <audio id="access-music" src="https://assets.mixkit.co/music/preview/mixkit-sci-fi-interface-911.mp3" preload="auto" loop></audio>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Divyanshu Pandey - Portfolio</title>
+  <meta name="description" content="Divyanshu Pandey's personal portfolio.">
+  <meta name="keywords" content="Divyanshu Pandey, portfolio, HTML, CSS, web developer, student">
+  <meta name="author" content="Divyanshu Pandey">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <!-- Add this in <head> -->
+<!-- <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Visualizer for music -->
-  <canvas id="music-visualizer"></canvas>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Play:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
   
+<!-- Lottie Background 
+  <div class="lottie-background">
+    <lottie-player
+      src="https://assets4.lottiefiles.com/packages/lf20_7wwm1c9h.json"
+      background="transparent"
+      speed="1"
+      loop
+      autoplay>
+    </lottie-player>
+  </div> -->
+  <!-- loader 
+  <div id="loader">
+  <div class="spinner"></div>
+  </div> -->
+  
+  <!-- Dark/Light Mode Toggle -->
+ <!-- <button id="zthemeToggle" class="ztoggle-btn">🌙 Toggle Theme</button> -->
+
+  <!-- Back to Top Button -->
+  <button onclick="window.scrollTo({top:0,behavior:'smooth'});" id="back-to-top" aria-label="Back to top"><i class="fa fa-arrow-up"></i></button>
+
+  <!-- Navbar -->
+  <header>
+    <a href="#" class="logo" aria-label="Home">Divyanshu Pandey</a>
+   <button id="menu-btn" class="fa fa-bars" aria-label="Open menu"></button>
+    <nav class="navbar" aria-label="Main menu">
+      <ul>
+        <li><a href="#home" tabindex="0">Home</a></li>
+        <li><a href="#about" tabindex="0">About</a></li>
+        <li><a href="#skills" tabindex="0">Skills</a></li>
+        <li><a href="#projects" tabindex="0">Projects</a></li>
+        <li><a href="#education" tabindex="0">Education</a></li>
+        <li><a href="#achievements" tabindex="0">Achievements</a></li>
+        <li><a href="#testimonials" tabindex="0">Testimonials</a></li>
+        <li><a href="#blog" tabindex="0">Blog</a></li>
+        <li><a href="#contact" tabindex="0">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="home" class="first-section bg-grey">
+
+    <div class="container row-container">
+      <div class="content">
+        <br>
+        <br>
+        <br><br>
+        <div class="img-container" alt="Divyanshu">
+        <img src="https://raw.githubusercontent.com/CodeCr4cker/About/main/Img/itz.png" alt="Divyanshu Pandey photo">
+        </div>
+        <h3>Hello!</h3>
+        <h2><span id="typing"></span></h2>
+        <h2>Explore the journey of HTML &amp; CSS.</h2>
+        <p>Hello! I'm Divyanshu Pandey, a Class 12<sup>th</sup> student passionate about CSS and HTML.</p>
+        <a href="#about" class="primary-btn">Explore Me</a>
+      <!--  <a href="resume.pdf" class="primary-btn" download style="margin-left:1rem;">Download Resume</a>-->
+        <div class="social-links">
+          <a href="https://github.com/Divyanshu5520" aria-label="GitHub" target="_blank"><img src="https://img.icons8.com/?size=48&id=32323&format=png" class="img" alt="GitHub"></a>
+          <a href="#" aria-label="LinkedIn" target="_blank"><img src="https://img.icons8.com/?size=48&id=uLWV5A9vXIPu&format=png" class="img" alt="LinkedIn"></a>
+          <a href="#" aria-label="Twitter" target="_blank"><img src="https://img.icons8.com/?size=48&id=5MQ0gPAYYx7a&format=png" class="img" alt="Twitter"></a>
+          <a href="#" aria-label="Instagram" target="_blank"><img src="https://img.icons8.com/?size=48&id=63306&format=png" class="img" alt="Instagram"></a>
+          <a href="#" aria-label="Email" target="_blank"><img src="https://img.icons8.com/?size=80&id=wqGmdISvpm0c&format=png" class="img" alt="Email"></a>
+        </div>
+      </div>
+     <!-- <div class="img-container" alt="Divyanshu">
+        <img src="https://raw.githubusercontent.com/CodeCr4cker/About/main/Img/itz.png" alt="Divyanshu Pandey photo">
+      </div> -->
+    </div>
+  </section>
+
+  <!-- Video Introduction (Stub) -->
+  <!-- <section id="intro-video" class="section">
+    <div class="container column-container">
+      <h1>Video Introduction</h1>
+      <video src="my-intro.mp4" controls poster="poster.jpg" width="400" aria-label="Divyanshu's Introduction"></video>
+    </div>
+  </section> -->
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container column-container">
+      <h1>About Me</h1>
+      <p class="info">Hi 🖐 I am a 12<sup>th</sup> standard student passionate about coding.</p>
+      <p class="info">💻 Turning ideas into reality through technology.</p>
+      <p class="info">Explore my project and let's connect!🚀</p>
+      <p class="info">Thank you 🙏</p>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="section bg-grey">
+    <div class="container column-container">
+      <h1>Skills</h1>
+      <div class="skills-list">
+        <div class="skillbar">
+          <span>HTML</span>
+          <div class="bar"><div class="progress" style="width:90%"></div></div>
+        </div>
+        <div class="skillbar">
+          <span>CSS</span>
+          <div class="bar"><div class="progress" style="width:85%"></div></div>
+        </div>
+        <div class="skillbar">
+          <span>JavaScript</span>
+          <div class="bar"><div class="progress" style="width:30%"></div></div>
+        </div>
+        <div class="skillbar">
+          <span>Python</span>
+          <div class="bar"><div class="progress" style="width:45%"></div></div>
+        </div>
+        <div class="skillbar">
+          <span>My SQL</span>
+          <div class="bar"><div class="progress" style="width:50%"></div></div>
+        </div>
+        <!-- Add more skillbars as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="section">
+    <div class="container column-container">
+      <h1>Projects</h1>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="https://raw.githubusercontent.com/CodeCr4cker/About/main/Img/Code%20to%20PDF.jpg" alt="Project 1 Screenshot">
+          <h2>Personal Portfolio</h2>
+          <p>My own website, built with HTML, CSS and a sprinkle of JavaScript.</p>
+          <a href="https://codecr4cker.github.io/Code-2-pdf/" class="primary-btn" target="_blank">View Project</a>
+         <!-- <a href="#" class="primary-btn" target="_blank">GitHub Repo</a> -->
+        </div>
+        <div class="project-card">
+          <img src="https://raw.githubusercontent.com/CodeCr4cker/About/main/Img/Chatting%20app.jpg" alt="Project 2 Screenshot">
+          <h2>Chatting App</h2>
+          <p>A basic chatting app made using React Js, HTML, JavaScript and CSS.</p>
+          <a href="https://codecr4cker.github.io/react-chat-app/" class="primary-btn" target="_blank">View Project</a>
+        </div>
+        <!-- Add more project cards as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Education & Experience Timeline 
+  <section id="education" class="section bg-grey">
+    <div class="container column-container">
+      <h1>Education & Experience</h1>
+      <div class="timeline">
+        <div class="timeline-item">
+       <!--   <div class="timeline-dot"></div> 
+          <div class="timeline-content">
+            <h2>High School Student</h2>
+            <span>2023 - Present</span>
+            <p>Currently studying in 12th standard, focusing on Computer Science and Mathematics.</p>
+          </div>
+        </div>
+        <!-- Add more timeline items as you gain experience 
+      </div>
+    </div>
+  </section> -->
+
+
+<!-- Education Section -->
+  <div class="zcontainer" id="education">
+    <h1 class="aling">Education</h1>
+    <div class="ztimeline">
+      <div class="zeducation-item">
+        <div class="zeducation-dot"></div>
+        <div class="zedu-header">Indian Institute of Technology (IIT) Kanpur</div>
+        <div class="zedu-years">2018 – 2022 · B.Tech in Computer Science</div>
+        <button class="zshow-btn">Show Details</button>
+        <div class="zedu-details">
+          <ul class="zlist">
+            <li class="zlist-item">CGPA: 9.2/10</li>
+            <li class="zlist-item">Relevant Coursework: Data Structures, Algorithms, ML, Databases</li>
+            <li class="zlist-item">Major Project: “AI-Powered Code Analyzer”</li>
+            <li class="zlist-item">Clubs: Coding Club (Lead), Robotics Society</li>
+          </ul>
+        </div>
+      </div>
+      <div class="zeducation-item">
+        <div class="zeducation-dot"></div>
+        <div class="zedu-header">Delhi Public School</div>
+        <div class="zedu-years">2016 – 2018 · Science (PCM)</div>
+        <button class="zshow-btn">Show Details</button>
+        <div class="zedu-details">
+          <ul class="zlist">
+            <li class="zlist-item">Percentage: 95.4%</li>
+            <li class="zlist-item">Achievements: School Topper, Science Olympiad Gold</li>
+            <li class="zlist-item">Head of Coding Club</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+<!-- <section id="job-track">
+  <h2 class="title-headline"><i class="fas fa-briefcase"></i> Work Experience</h2>
+  <div class="journey-wrapper">
+    <div class="track-node right-align">
+      <div class="entry-box">
+        <div class="role-label"><h2>Self Employed</h2></div>
+        <div class="role-details"><h3>Full Stack Developer</h3><p>Oct 2021 - present</p></div>
+      </div>
+    </div>
+    <div class="track-node left-align">
+      <div class="entry-box">
+        <div class="role-label"><h2>Mapstreak Flyseas</h2></div>
+        <div class="role-details"><h3>Web Developer | Internship</h3><p>June 2021 - Dec 2021</p></div>
+      </div>
+    </div>
+    <div class="track-node right-align">
+      <div class="entry-box">
+        <div class="role-label"><h2>The Spark Foundation</h2></div>
+        <div class="role-details"><h3>Website Developer | Internship</h3><p>May 2021 - June 2021</p></div>
+      </div>
+    </div>
+    <div class="track-node left-align">
+      <div class="entry-box">
+        <div class="role-label"><h2>The Spark Foundation</h2></div>
+        <div class="role-details"><h3>Mobile Application Developer | Internship</h3><p>April 2021 - May 2021</p></div>
+      </div>
+    </div>
+    <div class="track-node right-align">
+      <div class="entry-box">
+        <div class="role-label"><h2>Frshr Technologies</h2></div>
+        <div class="role-details"><h3>Wordpress Developer | Internship</h3><p>April 2021 - April 2021</p></div>
+      </div>
+    </div>
+    <div class="track-node left-align">
+      <div class="entry-box">
+        <div class="role-label"><h2>WonderingBlog</h2></div>
+        <div class="role-details"><h3>Web Development & SEO | Internship</h3><p>March 2021 - April 2021</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="button-wrap">
+    <a href="/experience" class="cta-button"><span>View All</span> <i class="fas fa-arrow-right"></i></a>
+  </div>
+</section> -->
+<!-- experience section ends -->
+
+  <!-- Achievements / Certificates Section -->
+  <section id="achievements" class="section">
+    <div class="container column-container">
+      <h1>Achievements & Certificates</h1>
+      <div class="achievements-grid">
+        <div class="achievement-card">
+          <img src="https://raw.githubusercontent.com/CodeCr4cker/About/main/Img/Certificate.jpg" alt="Certificate 1">
+          <h2>HTML & CSS Certificate</h2>
+          <p>Received from FreeCodeCamp (2024).</p>
+        </div>
+        <!-- Add more achievement cards as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Carousel -->
+  <section id="testimonials" class="section bg-grey">
+    <div class="container column-container">
+      <h1>Testimonials</h1>
+      <div class="testimonials-carousel">
+        <div class="testimonial active">
+          <p>"Divyanshu is a highly motivated student with a passion for web development!"</p>
+          <span>- Teacher</span>
+        </div>
+        <div class="testimonial">
+          <p>"He turns ideas into beautiful websites. Highly recommended!"</p>
+          <span>- Mentor</span>
+        </div>
+        <!-- Add more testimonials as needed -->
+        <button class="carousel-btn prev" aria-label="Previous testimonial">&#10094;</button>
+        <button class="carousel-btn next" aria-label="Next testimonial">&#10095;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog/Articles Section (Stub) -->
+  <section id="blog" class="section">
+    <div class="container column-container">
+      <h1>Blog / Articles</h1>
+      <div class="blog-list">
+        <div class="blog-card">
+          <h2>How I Built My First Website</h2>
+          <p>Sharing my journey from a simple HTML file to a full website.</p>
+          <a class="primary-btn" id="openPopup">Read More</a>
+        </div>
+          <div class="overlay" id="overlay"></div>
+  <div class="popup" id="popup">
+    <p>
+      This Website is fully created by Divyanshu Pandey</p>
+    <button class="close-btn" id="closePopup">Close</button>
+  </div>
+        <!-- Add more blog cards as you write articles -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Signup (Stub) -->
+  <!--
+  <section id="newsletter" class="section bg-grey">
+    <div class="container column-container">
+      <h1>Subscribe to my Newsletter</h1>
+      <form>
+        <input type="email" placeholder="Your email address" required>
+        <input type="submit" value="Subscribe" class="primary-btn">
+      </form>
+    </div>
+  </section>
+  -->
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <div class="container column-container">
+      <div class="content">
+        <h1 class="contact-">Get in Touch</h1>
+      </div>
+      <form id="contact-form" autocomplete="off" aria-label="Contact form">
+        <input type="text" name="username" placeholder="Username" required aria-label="Username">
+        <input type="tel" name="contact-number" placeholder="Phone Number" required aria-label="Phone Number" pattern="[0-9]{10}">
+        <input type="email" name="email" placeholder="Email Address" required aria-label="Email Address">
+        <textarea name="message" placeholder="Type your message here" rows="6" required aria-label="Message"></textarea>
+        <input type="submit" value="Send Message" class="primary-btn">
+        <p id="contact-success" style="display:none; color:green; margin-top:1rem;">Thank you! Your message has been sent.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Chat Widget (Stub) -->
+  <!--
+    <div id="chat-widget">
+      <button class="chat-toggle" aria-label="Open chat"><i class="fa fa-comments"></i></button>
+      <div class="chat-box" style="display:none;">
+        <p>Hi! How can I help you?</p>
+        <input type="text" placeholder="Type your message...">
+        <button>Send</button>
+      </div>
+    </div>
+  -->
+
+  <!-- Footer -->
+  <footer class="footer-section bg-black">
+    <div class="container">
+      <pre>© <span id="year"></span> Divyanshu Pandey</pre>
+      <div class="footer-social">
+        <a href="https://github.com/Divyanshu5520" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+        <!-- Add more social icons as needed -->
+      </div>
+    </div>
+  </footer>
+  
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+  
+  <!-- JavaScript for features -->
   <script src="scripts.js"></script>
 </body>
-</html>
+    </html>
