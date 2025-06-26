@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hacker Portfolio</title>
   <link rel="stylesheet" href="styles.css">
+  <!-- QRious for QR code generation -->
+  <script src="https://cdn.jsdelivr.net/npm/qrious/dist/qrious.min.js"></script>
 </head>
 <body class="theme-green">
   <canvas id="rain-canvas"></canvas>
@@ -12,10 +14,11 @@
   <!-- Neon Animated Navigation Menu -->
   <nav id="nav">
     <ul>
-      <li><a href="#terminal">Terminal</a></li>
+      <li><a href="#terminal-section">Terminal</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#timeline">Timeline</a></li>
       <li><a href="#stats">Stats</a></li>
       <li><a href="#achievements">Achievements</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -44,11 +47,11 @@
   
   <main>
     <section id="about">
-      <h2>About Me</h2>
+      <h2 class="glitch-title">About Me</h2>
       <p>I am a passionate full-stack developer with a love for clean code and modern design.</p>
     </section>
     <section id="skills">
-      <h2>Skills</h2>
+      <h2 class="glitch-title">Skills</h2>
       <div class="progress-bar-group">
         <label>HTML</label>
         <div class="progress-bar"><div class="progress-bar-fill" data-width="90%"></div></div>
@@ -59,7 +62,7 @@
       </div>
     </section>
     <section id="projects">
-      <h2>Projects</h2>
+      <h2 class="glitch-title">Projects</h2>
       <div class="project-cards">
         <div class="project-card" tabindex="0">
           <h3>Portfolio Website</h3>
@@ -75,22 +78,49 @@
         </div>
       </div>
     </section>
+    <section id="timeline">
+      <h2 class="glitch-title">Timeline</h2>
+      <div class="timeline">
+        <div class="timeline-entry">
+          <span class="timeline-dot"></span>
+          <div class="timeline-content">
+            <h3>2021: Started Web Dev</h3>
+            <p>Learned HTML, CSS, JS</p>
+          </div>
+        </div>
+        <div class="timeline-entry">
+          <span class="timeline-dot"></span>
+          <div class="timeline-content">
+            <h3>2022: Built Chat App</h3>
+            <p>Realtime messaging project</p>
+          </div>
+        </div>
+        <div class="timeline-entry">
+          <span class="timeline-dot"></span>
+          <div class="timeline-content">
+            <h3>2023: Joined ABC Corp</h3>
+            <p>Full-stack developer role</p>
+          </div>
+        </div>
+      </div>
+    </section>
     <section id="stats">
-      <h2>Stats</h2>
+      <h2 class="glitch-title">Stats</h2>
       <ul id="stats-list">
         <li>Lines of code: <span id="loc">0</span></li>
         <li>Cups of coffee: <span id="coffee">0</span></li>
         <li>GitHub Contributions: <span id="github-contribs">0</span></li>
       </ul>
+      <div id="skill-chart"></div>
     </section>
     <section id="achievements">
-      <h2>Achievements</h2>
+      <h2 class="glitch-title">Achievements</h2>
       <div id="badges">
         <!-- Badges will be added by JS -->
       </div>
     </section>
     <section id="contact">
-      <h2>Contact Me</h2>
+      <h2 class="glitch-title">Contact Me</h2>
       <form id="contact-form">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
@@ -98,9 +128,13 @@
         <button type="submit">Send</button>
       </form>
       <div id="encryption-animation"></div>
+      <div id="qr-container">
+        <canvas id="qr-canvas" width="120" height="120"></canvas>
+        <div id="qr-glitch"></div>
+      </div>
     </section>
     <section id="resume">
-      <h2>Resume</h2>
+      <h2 class="glitch-title">Resume</h2>
       <button id="download-resume">Download Encrypted Resume</button>
       <div id="resume-unlock" style="display:none;">
         <p>Enter unlock code:</p>
