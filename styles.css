@@ -6,7 +6,7 @@
   --black: #fff;
   --overlay: #4465ad;
   --primary-pink: rgb(253, 152, 1);
-    --btn1:rgb(0, 102, 255);
+  --btn1:rgb(0, 102, 255);
   --btn2:rgb(255, 187, 0);
   --secondary-grey: #222;
   --secondary-pink: #ffffff;
@@ -17,42 +17,168 @@
   --progress-fill: #ff69b4;
   --testimonial-bg: #2e2e2e;
   --breaf: #f0f0f0;    
-     --z-primary: #00d9ff;
-      --z-bg: #0a0a0a;
-      --z-glow: #00d9ff80;
-      --z-gradient: linear-gradient(135deg, #00d9ff, #0066ff);
+  --z-primary: #00d9ff;
+  --z-bg: #0a0a0a;
+  --z-glow: #00d9ff80;
+  --z-gradient: linear-gradient(135deg, #00d9ff, #0066ff);
   --primary: #ffd000;
-      /* --primary-dark: #000000; */
-      --bg-light: #1a1b1b;
-      --bg-dark: #0d3ace;
-      --text-light: #9900ff;
-      --text-dark: #2bff00;
-      --highlight: #cc7126;
-      
-  /* --white: #ffffff;
-  --black: #000;
-  --overlay: rgb(76, 0, 255);
-  /* --primary-pink: #00ff95; */
-  /* --secondary-grey: rgb(0, 255, 213);
-  --secondary-pink: rgb(255, 153, 0);
-  --footer-black: #222;
-  --card-bg: #f5f5ff;
-  --timeline-dot: #ff0000;
-  --progress-bg: #eee;
-  --progress-fill: #ff0000;
-  --btn1:rgb(0, 102, 255);
-  --btn2:rgb(255, 251, 0);
-  --testimonial-bg: #f6e9ff;
-
-  --bg-light: #ffffff;
-      --bg-dark: #1e1e1e;
-      --text-light: #333333;
-      --text-dark: #f0f0f0;
-      --primary: #2506ad; */ 
+  --bg-light: #1a1b1b;
+  --bg-dark: #0d3ace;
+  --text-light: #9900ff;
+  --text-dark: #2bff00;
+  --highlight: #cc7126;
 }
-/* body.dark-mode{
+svg[height="0"] {
+  position: absolute;
+}
+.certificate{
+    --k: 0;
+  place-self: center;
+  font-size: 2.2rem;
+  background: linear-gradient(90deg, hsl(calc(var(--k)*1turn), 95%, 65%), hsl(calc(var(--k)*1turn + 90deg), 95%, 65%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* font: 900 clamp(.875em, 7.25vw, 5em) arial black, sans-serif; */
+  filter: url(#f);
+  text-align: center;
+  text-transform: uppercase;
+  /* needs support for animating custom properties */
+  /* Firefox not quite there yet, but it's coming */
+  animation: k 4s linear infinite;
+}
+.logoo {
+  /* no pseudo needed */
+  --k: 0;
+  place-self: center;
+  font-size: 2.2rem;
+  background: linear-gradient(90deg, hsl(calc(var(--k)*1turn), 95%, 65%), hsl(calc(var(--k)*1turn + 90deg), 95%, 65%));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* font: 900 clamp(.875em, 7.25vw, 5em) arial black, sans-serif; */
+  filter: url(#f);
+  text-align: center;
+  text-transform: uppercase;
+  /* needs support for animating custom properties */
+  /* Firefox not quite there yet, but it's coming */
+  animation: k 4s linear infinite;
+}
 
-} */
+@keyframes k {
+  to {
+    --k: 1 ;
+  }
+}
+/* SVG animated background */
+.svg-bg {
+  position: fixed;
+  left: 0; top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Loader styles */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #0f2027, #2c5364 75%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: opacity 0.4s;
+  flex-direction: column;
+}
+#loader .loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.loader-text {
+  margin-top: 1.2rem;
+  font-size: 2.2rem;
+  color: #fff;
+  letter-spacing: 0.12em;
+  font-family: 'Poppins', 'Nunito', sans-serif;
+  display: flex;
+}
+.loader-text .dot {
+  opacity: 0.3;
+  animation: loader-bounce 1.2s infinite;
+  display: inline-block;
+  margin: 0 0.02em;
+}
+.loader-text .dot:nth-child(1) { animation-delay: 0s; opacity: 1; }
+.loader-text .dot:nth-child(2) { animation-delay: 0.1s; opacity: 1; }
+.loader-text .dot:nth-child(3) { animation-delay: 0.2s; opacity: 1; }
+.loader-text .dot:nth-child(4) { animation-delay: 0.3s; opacity: 1; }
+.loader-text .dot:nth-child(5) { animation-delay: 0.4s; opacity: 1; }
+.loader-text .dot:nth-child(6) { animation-delay: 0.5s; opacity: 1; }
+.loader-text .dot:nth-child(7) { animation-delay: 0.6s; opacity: 1; }
+.loader-text .dot:nth-child(8) { animation-delay: 0.7s; }
+.loader-text .dot:nth-child(9) { animation-delay: 0.8s; }
+.loader-text .dot:nth-child(10) { animation-delay: 0.9s; }
+
+@keyframes loader-bounce {
+  0%, 100% { opacity: 0.2; transform: translateY(0);}
+  30% { opacity: 1; transform: translateY(-10px);}
+  50% { opacity: 0.7; }
+}
+
+/* Hamburger styles */
+#menu-btn.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  outline: none;
+  width: 40px;
+  height: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1001;
+  padding: 0;
+}
+#menu-btn.hamburger span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: var(--primary-pink);
+  margin: 5px 0;
+  border-radius: 2px;
+  transition: all 0.3s cubic-bezier(.4,2,.6,1);
+}
+@media (max-width:1030px) {
+  #menu-btn.hamburger {
+    display: flex;
+    position: relative;
+  }
+}
+#menu-btn.hamburger.open span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+#menu-btn.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+#menu-btn.hamburger.open span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Reveal on scroll animation */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(.39,.58,.57,1), transform 0.7s cubic-bezier(.39,.58,.57,1);
+  will-change: opacity, transform;
+}
+.reveal-on-scroll.visible {
+  opacity: 1;
+  transform: none;
+}
 *,
 *::before,
 *::after {
