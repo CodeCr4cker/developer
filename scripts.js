@@ -1,12 +1,11 @@
 // Loader logic (3 second splash)
-window.addEventListener('DOMContentLoaded', () => {
-  const loader = document.getElementById('loader');
-  setTimeout(() => {
-    loader.style.opacity = '0';
-    loader.style.pointerEvents = 'none';
-    setTimeout(() => loader.style.display = 'none', 400);
-  }, 3000); // 3 seconds
-});
+    window.addEventListener('DOMContentLoaded', () => {
+      const loader = document.querySelector('.preloader');
+      setTimeout(() => {
+        loader.classList.add('preloader-deactivate');
+        setTimeout(() => loader.style.display = 'none', 900);
+      }, 3000);
+    });
 
 // Reveal on scroll (works for both up and down scroll)
 function revealOnScroll() {
@@ -123,3 +122,4 @@ document.getElementById('contact-form').onsubmit = function(e) {
 
 // Set current year in footer
 document.getElementById('year').textContent = new Date().getFullYear();
+
