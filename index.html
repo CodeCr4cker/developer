@@ -8,6 +8,7 @@
   <meta name="keywords" content="Divyanshu Pandey, portfolio, HTML, CSS, web developer, student">
   <meta name="author" content="Divyanshu Pandey">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Play:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
@@ -251,32 +252,74 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="section reveal-on-scroll">
-    <div class="container column-container">
-      <div class="content">
-        <h1 class="contact-">Get in Touch</h1>
-      </div>
-      <form id="contact-form" autocomplete="off" aria-label="Contact form">
-        <input type="text" name="username" placeholder="Username" required aria-label="Username">
-        <input type="tel" name="contact-number" placeholder="Phone Number" required aria-label="Phone Number" pattern="[0-9]{10}">
-        <input type="email" name="email" placeholder="Email Address" required aria-label="Email Address">
-        <textarea name="message" placeholder="Type your message here" rows="6" required aria-label="Message"></textarea>
-        <input type="submit" value="Send Message" class="primary-btn">
-        <p id="contact-success" style="display:none; color:green; margin-top:1rem;">Thank you! Your message has been sent.</p>
+  <section id="contact" style="background: #1e1e1e; padding: 60px 20px;" class="reveal-on-scroll">
+    <div style="max-width: 700px; margin: auto; text-align: center; color: white;" data-aos="fade-up" data-aos-duration="1200">
+      <h2 style="font-size: 2.2rem; color: #ffbd39; margin-bottom: 10px;">Get in Touch</h2>
+      <p style="margin-bottom: 40px; color: #ccc;">Have a project in mind, a question, or just want to connect? Drop a message!</p>
+
+      <form id="contactForm" style="display: flex; flex-direction: column; gap: 20px;">
+        <input type="text" name="name" placeholder="Your Name" required
+               style="padding: 15px; border-radius: 10px; border: none; background: #2c2c2c; color: white; font-size: 1rem;">
+        
+        <input type="email" name="email" placeholder="Your Email" required
+               style="padding: 15px; border-radius: 10px; border: none; background: #2c2c2c; color: white; font-size: 1rem;">
+        
+        <textarea name="message" placeholder="Your Message" rows="5" required
+                  style="padding: 15px; border-radius: 10px; border: none; background: #2c2c2c; color: white; font-size: 1rem;"></textarea>
+        
+        <button type="submit"
+                style="background: linear-gradient(90deg, #ff8c00, #e0ff00); border: none; padding: 15px; font-size: 1rem; font-weight: bold; border-radius: 50px; cursor: pointer; transition: transform 0.3s;">
+          Send Message
+        </button>
       </form>
+
+      <div id="successMessage" style="display: none; margin-top: 20px; color: #39ff14; font-weight: bold;">
+        ✅ Message sent successfully!
+      </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer-section bg-black reveal-on-scroll">
-    <div class="container">
-      <pre>© <span id="year"></span> Divyanshu Pandey</pre>
-      <div class="footer-social">
-        <a href="https://github.com/Divyanshu5520" aria-label="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+  <!-- AOS JS -->
+  
+
+
+
+
+
+  <!-- yFooter Section -->
+  <footer id="yFooter">
+    <div class="yFooterContainer">
+
+      <div class="yFooterLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <!-- <div class="yFooterSocial">
+        <a href="https://github.com/yourprofile" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:you@example.com"><i class="fas fa-envelope"></i></a>
+      </div> -->
+
+      <div class="yFooterBottom">
+        <p>&copy; 2025 Divyanshu Pandey. Made with 💛 | All rights reserved.</p>
       </div>
     </div>
   </footer>
-  
+
+
+
+
+
+
+
+
+
+
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
   <script src="scripts.js"></script>
   <script src="particles.min.js"></script>

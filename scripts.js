@@ -1,3 +1,5 @@
+AOS.init();
+
 // Loader logic (3 second splash)
     window.addEventListener('DOMContentLoaded', () => {
       const loader = document.querySelector('.preloader');
@@ -111,14 +113,24 @@ document.querySelector('.testimonials-carousel .prev').onclick = () => {
 showTestimonial(activeTestimonial);
 
 // Contact form validation & success message
-document.getElementById('contact-form').onsubmit = function(e) {
-  e.preventDefault();
-  document.getElementById('contact-success').style.display = 'block';
-  this.reset();
-  setTimeout(() => {
-    document.getElementById('contact-success').style.display = 'none';
-  }, 5000);
-};
+const form = document.getElementById('contactForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); // Prevent default submit for now
+
+      // Simulate successful submission
+      setTimeout(() => {
+        form.reset();
+        successMessage.style.display = 'block';
+
+        // Hide the success message after 4 seconds
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+        }, 4000);
+      }, 500);
+    });
+  
 
 // Set current year in footer
 document.getElementById('year').textContent = new Date().getFullYear();
