@@ -28,28 +28,9 @@
   --text-dark: #2bff00;
   --highlight: #cc7126;
 }
-svg[height="0"] {
-  position: absolute;
-}
-.certificate{
-    --k: 0;
-  place-self: center;
-  font-size: 2.2rem;
-  background: linear-gradient(90deg, hsl(calc(var(--k)*1turn), 95%, 65%), hsl(calc(var(--k)*1turn + 90deg), 95%, 65%));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  /* font: 900 clamp(.875em, 7.25vw, 5em) arial black, sans-serif; */
-  filter: url(#f);
-  text-align: center;
-  text-transform: uppercase;
-  /* needs support for animating custom properties */
-  /* Firefox not quite there yet, but it's coming */
-  animation: k 4s linear infinite;
-}
-.logoo {
-  /* no pseudo needed */
-  --k: 0;
+svg[height="0"] {position: absolute;}
+.certificate{--k: 0; place-self: center; font-size: 2.2rem; background: linear-gradient(90deg, hsl(calc(var(--k)*1turn), 95%, 65%), hsl(calc(var(--k)*1turn + 90deg), 95%, 65%)); -webkit-background-clip: text;  background-clip: text; color: transparent; filter: url(#f); text-align: center; text-transform: uppercase; animation: k 4s linear infinite;}
+.logoo { --k: 0;
   place-self: center;
   font-size: 2.2rem;
   background: linear-gradient(90deg, hsl(calc(var(--k)*1turn), 95%, 65%), hsl(calc(var(--k)*1turn + 90deg), 95%, 65%));
