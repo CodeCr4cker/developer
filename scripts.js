@@ -23,6 +23,17 @@ function revealOnScroll() {
 }
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
+const yAudio = document.getElementById("yBackgroundAudio");
+
+setTimeout(() => {
+  // Play muted first (to bypass autoplay policy), then unmute
+  yAudio.muted = true;
+  yAudio.play().then(() => {
+    yAudio.muted = false;
+  }).catch(err => {
+    console.warn("Autoplay blocked until user interacts:", err);
+  });
+}, 3000); // Delay matches your loader time (e.g., 3 seconds)
 
 // Hamburger menu for mobile
 const menuBtn = document.getElementById('menu-btn');
