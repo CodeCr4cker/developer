@@ -23,29 +23,6 @@ function revealOnScroll() {
 }
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
-const yAudio = document.getElementById("yBackgroundAudio");
-
-const yAudio = document.getElementById("yBackgroundAudio");
-
-  // Wait 3 seconds for loader to finish
-  setTimeout(() => {
-    const loader = document.querySelector(".preloader");
-    if (loader) loader.style.display = "none";
-
-    // Trigger audio on first click or scroll (user gesture)
-    const playAudio = () => {
-      yAudio.play().then(() => {
-        console.log("Audio playing!");
-      }).catch(err => {
-        console.warn("Autoplay blocked:", err);
-      });
-      document.removeEventListener("click", playAudio);
-      document.removeEventListener("scroll", playAudio);
-    };
-
-    document.addEventListener("click", playAudio);
-    document.addEventListener("scroll", playAudio);
-  }, 3000);
 
 // Hamburger menu for mobile
 const menuBtn = document.getElementById('menu-btn');
@@ -64,24 +41,6 @@ document.querySelectorAll('header .navbar a').forEach(link => {
   };
 });
 
-// read more mobile-friendly 
-const openBtn = document.getElementById('openPopup');
-const closeBtn = document.getElementById('closePopup');
-const popup = document.getElementById('popup');
-const overlay = document.getElementById('overlay');
-
-openBtn.addEventListener('click', () => {
-  popup.classList.add('show');
-  overlay.classList.add('show');
-  document.body.style.overflow = 'hidden';
-});
-const closePopup = () => {
-  popup.classList.remove('show');
-  overlay.classList.remove('show');
-  document.body.style.overflow = 'auto';
-};
-closeBtn.addEventListener('click', closePopup);
-overlay.addEventListener('click', closePopup);
 
 // Show Details toggle
 const detailBtns = document.querySelectorAll('.zshow-btn');
