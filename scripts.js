@@ -121,7 +121,7 @@ const form = document.getElementById('contactForm');
 
 const pages = [
       `<div class='page-content'>
-        <img src="profile.png" alt="Profile Photo" class="profile-pic">
+        <img src="https://raw.githubusercontent.com/CodeCr4cker/About/main/Img/itz.png" alt="Profile Photo" class="profile-pic">
         <h2 class='page-heading'>Introduction</h2>
         <p>Welcome to the Quantum Codex, a neural interface bridging consciousness and digital reality. This encrypted transmission contains fragments of tomorrow's wisdom, decoded for those who dare to transcend the boundaries of conventional understanding.</p>
       </div>`,
