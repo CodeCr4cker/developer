@@ -94,13 +94,34 @@
 
   <!-- About Section -->
   <section id="about" class="section reveal-on-scroll neon-section">
-    <div class="container column-container">
-      <h1 class="neon-title">About Me</h1>
-      <p class="info neon-p">Hi 🖐 I am a 12<sup>th</sup> standard student passionate about coding.</p>
-      <p class="info neon-p">💻 Turning ideas into reality through technology.</p>
-      <p class="info neon-p">Explore my project and let's connect!🚀</p>
-      <p class="info neon-p">Thank you 🙏</p>
+   <div class="interface-container">
+    <button class="start-button" id="startBtn">Initialize Matrix</button>
+    
+    <div class="scroll-container" id="scrollContainer">
+      <div class="close-btn" id="closeBtn">×</div>
+      <div class="roller top-roller"></div>
+      <div class="parchment" id="parchment">
+        <div class="loading-spinner" id="loadingSpinner"></div>
+        <p class="scroll-text" id="scrollText"></p>
+      </div>
+      <div class="roller bottom-roller"></div>
+      
+      <div class="nav-section">
+        <div class="status-bar">
+          <div class="page-indicator" id="pageIndicator">
+            <span id="pageCounter">1 / 5</span>
+            <div class="progress-bar">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+          </div>
+        </div>
+        <div class="nav-buttons">
+          <button class="nav-btn" id="prevBtn">← Previous</button>
+          <button class="nav-btn" id="nextBtn">Next →</button>
+        </div>
+      </div>
     </div>
+  </div>
   </section>
 
   <!-- Skills Section -->
