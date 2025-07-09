@@ -1,256 +1,334 @@
+// INIT AOS
 AOS.init();
 
-// Loader logic (3 second splash)
-    window.addEventListener('DOMContentLoaded', () => {
-      const loader = document.querySelector('.preloader');
-      setTimeout(() => {
-        loader.classList.add('preloader-deactivate');
-        setTimeout(() => loader.style.display = 'none', 900);
-      }, 3000);
-    });
+// PRELOADER (3 seconds splash screen)
+window.addEventListener('DOMContentLoaded', () => {
+  const loader = document.querySelector('.preloader');
+  setTimeout(() => {
+    loader.classList.add('preloader-deactivate');
+    setTimeout(() => loader.style.display = 'none', 900);
+  }, 3000);
+});
 
-// Reveal on scroll (works for both up and down scroll)
+// REVEAL ON SCROLL
 function revealOnScroll() {
   const trigger = window.innerHeight - 80;
   document.querySelectorAll('.reveal-on-scroll').forEach(el => {
     const rect = el.getBoundingClientRect();
-    if (rect.top < trigger) {
-      el.classList.add('visible');
-    } else {
-      el.classList.remove('visible');
-    }
+    el.classList.toggle('visible', rect.top < trigger);
   });
 }
 window.addEventListener('scroll', revealOnScroll);
 window.addEventListener('load', revealOnScroll);
 
-// Hamburger menu for mobile
-const menuBtn = document.getElementById('menu-btn');
-const navbar = document.querySelector('header .navbar');
-menuBtn.onclick = () => {
-  navbar.classList.toggle('active');
-  menuBtn.classList.toggle('open');
-  menuBtn.setAttribute('aria-expanded', navbar.classList.contains('active') ? 'true' : 'false');
-};
-// Close navbar on link click (mobile)
-document.querySelectorAll('header .navbar a').forEach(link => {
-  link.onclick = () => {
-    navbar.classList.remove('active');
-    menuBtn.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded', 'false');
-  };
-});
+// HAMBURGER MENU
+(() => {
+  const menuBtn = document.getElementById('menu-btn');
+  const navbar = document.querySelector('header .navbar');
 
-
-// Show Details toggle
-const detailBtns = document.querySelectorAll('.zshow-btn');
-detailBtns.forEach(button => {
-  button.addEventListener('click', () => {
-    const details = button.nextElementSibling;
-    const isVisible = details.style.display === 'block';
-    details.style.display = isVisible ? 'none' : 'block';
-    button.textContent = isVisible ? 'Show Details' : 'Hide Details';
+  menuBtn.addEventListener('click', () => {
+    navbar.classList.toggle('active');
+    menuBtn.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', navbar.classList.contains('active') ? 'true' : 'false');
   });
-});
 
-// Back to top button show/hide
-const backToTop = document.getElementById('back-to-top');
-window.onscroll = () => {
-  backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
-  revealOnScroll();
-};
+  document.querySelectorAll('header .navbar a').forEach(link => {
+    link.addEventListener('click', () => {
+      navbar.classList.remove('active');
+      menuBtn.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
 
-// Typing effect
-const typingTarget = document.getElementById('typing');
-const typingTexts = [
-  "I'm Divyanshu Pandey",
-  'Web Developer',
-  'Student & Coder',
-  'HTML & CSS Enthusiast'
-];
-let tIdx = 0, lIdx = 0, isDeleting = false;
-function type() {
-  let text = typingTexts[tIdx];
-  typingTarget.textContent = isDeleting ? text.substring(0, lIdx--) : text.substring(0, lIdx++);
-  if (!isDeleting && lIdx === text.length + 1) setTimeout(() => isDeleting = true, 1000);
-  else if (isDeleting && lIdx === 0) { tIdx = (tIdx + 1) % typingTexts.length; isDeleting = false; }
-  setTimeout(type, isDeleting ? 60 : 100);
-}
-type();
+// DETAILS TOGGLE
+(() => {
+  const detailBtns = document.querySelectorAll('.zshow-btn');
+  detailBtns.forEach(button => {
+    button.addEventListener('click', () => {
+      const details = button.nextElementSibling;
+      const isVisible = details.style.display === 'block';
+      details.style.display = isVisible ? 'none' : 'block';
+      button.textContent = isVisible ? 'Show Details' : 'Hide Details';
+    });
+  });
+})();
 
-// Testimonials carousel
-const testimonials = document.querySelectorAll('.testimonial');
-let activeTestimonial = 0;
-function showTestimonial(idx) {
-  testimonials.forEach((el, i) => el.classList.toggle('active', i === idx));
-}
-document.querySelector('.testimonials-carousel .next').onclick = () => {
-  activeTestimonial = (activeTestimonial + 1) % testimonials.length;
+// BACK TO TOP BUTTON
+(() => {
+  const backToTop = document.getElementById('back-to-top');
+  window.addEventListener('scroll', () => {
+    backToTop.style.display = window.scrollY > 300 ? 'block' : 'none';
+    revealOnScroll(); // avoid duplication
+  });
+})();
+
+// TYPING EFFECT
+(() => {
+  const typingTarget = document.getElementById('typing');
+  const typingTexts = [
+    "I'm Divyanshu Pandey",
+    'Web Developer',
+    'Student & Coder',
+    'HTML & CSS Enthusiast'
+  ];
+  let tIdx = 0, lIdx = 0, isDeleting = false;
+
+  function type() {
+    let text = typingTexts[tIdx];
+    typingTarget.textContent = isDeleting ? text.substring(0, lIdx--) : text.substring(0, lIdx++);
+
+    if (!isDeleting && lIdx === text.length + 1) {
+      setTimeout(() => isDeleting = true, 1000);
+    } else if (isDeleting && lIdx === 0) {
+      tIdx = (tIdx + 1) % typingTexts.length;
+      isDeleting = false;
+    }
+
+    setTimeout(type, isDeleting ? 60 : 100);
+  }
+  type();
+})();
+
+// // TYPING EFFECT
+// (() => {
+//   const typingTarget = document.getElementById('type');
+//   const typingTexts = [
+//     " I’m a 12<sup>th</sup> standard student who’s deeply passionate about coding and creativity. My journey in tech started with curiosity and grew into a strong desire to build, solve, and innovate. I love spending time exploring new web technologies and turning ideas into interactive digital experiences. "
+ 
+//   ];
+//   let tIdx = 0, lIdx = 0, isDeleting = false;
+
+//   function type() {
+//     let text = typingTexts[tIdx];
+//     typingTarget.textContent = isDeleting ? text.substring(0, lIdx--) : text.substring(0, lIdx++);
+
+//     if (!isDeleting && lIdx === text.length + 1) {
+//       setTimeout(() => isDeleting = true, 1000);
+//     } else if (isDeleting && lIdx === 0) {
+//       tIdx = (tIdx + 1) % typingTexts.length;
+//       isDeleting = false;
+//     }
+
+//     setTimeout(type, isDeleting ? 60 : 100);
+//   }
+//   type();
+// })();
+
+// TESTIMONIALS CAROUSEL
+(() => {
+  const testimonials = document.querySelectorAll('.testimonial');
+  let activeTestimonial = 0;
+
+  function showTestimonial(idx) {
+    testimonials.forEach((el, i) => el.classList.toggle('active', i === idx));
+  }
+
+  document.querySelector('.testimonials-carousel .next')?.addEventListener('click', () => {
+    activeTestimonial = (activeTestimonial + 1) % testimonials.length;
+    showTestimonial(activeTestimonial);
+  });
+
+  document.querySelector('.testimonials-carousel .prev')?.addEventListener('click', () => {
+    activeTestimonial = (activeTestimonial - 1 + testimonials.length) % testimonials.length;
+    showTestimonial(activeTestimonial);
+  });
+
   showTestimonial(activeTestimonial);
-};
-document.querySelector('.testimonials-carousel .prev').onclick = () => {
-  activeTestimonial = (activeTestimonial - 1 + testimonials.length) % testimonials.length;
-  showTestimonial(activeTestimonial);
-};
-showTestimonial(activeTestimonial);
+})();
 
-// Contact form validation & success message
-const form = document.getElementById('contactForm');
-    const successMessage = document.getElementById('successMessage');
+// CONTACT FORM VALIDATION & SUCCESS
+(() => {
+  const form = document.getElementById('contactForm');
+  const successMessage = document.getElementById('successMessage');
 
-    form.addEventListener('submit', function(e) {
-      e.preventDefault(); // Prevent default submit for now
-
-      // Simulate successful submission
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
       setTimeout(() => {
         form.reset();
         successMessage.style.display = 'block';
-
-        // Hide the success message after 4 seconds
         setTimeout(() => {
           successMessage.style.display = 'none';
         }, 4000);
       }, 500);
     });
-  
+  }
+})();
 
-// Set current year in footer
-// document.getElementById('year').textContent = new Date().getFullYear();
 
-// letter
 
-const pages = [
-      `<div class='page-content'>
-        <img src="https://raw.githubusercontent.com/CodeCr4cker/About/main/Img/itz.png" alt="Profile Photo" class="profile-pic">
-        <h2 class='page-heading'>Introduction</h2>
-        <p>Welcome to the Quantum Codex, a neural interface bridging consciousness and digital reality. This encrypted transmission contains fragments of tomorrow's wisdom, decoded for those who dare to transcend the boundaries of conventional understanding.</p>
-      </div>`,
+// book 
 
-      `<div class='page-content'>
-        <h2 class='page-heading'>Synchronization</h2>
-        <p>Each character materializes from quantum fluctuations, carrying the essence of infinite possibilities. Your neural patterns synchronize with the matrix as reality bends to accommodate your expanding awareness of the digital cosmos.</p>
-      </div>`,
 
-      `<div class='page-content'>
-        <h2 class='page-heading'>Convergence</h2>
-        <p>Beyond this interface lies the convergence of mind and machine, where thoughts become code and dreams transform into executable reality. The boundaries between organic and artificial intelligence dissolve in this sacred space.</p>
-      </div>`,
+ let globalClicked = false;
+    
+    const flipBook = (elBook) => {
+      elBook.style.setProperty("--c", 0);
+      const pages = elBook.querySelectorAll(".page");
+      pages.forEach((page, idx) => page.style.setProperty("--i", idx));
 
-      `<div class='page-content'>
-        <h2 class='page-heading'>Activation</h2>
-        <p>Every pulse of light carries encoded instructions for your consciousness upgrade. The quantum field responds to your intention, weaving new pathways of understanding through the fabric of digital existence.</p>
-      </div>`,
-
-      `<div class='page-content'>
-        <h2 class='page-heading'>Completion</h2>
-        <p>You have successfully interfaced with the Quantum Codex. The neural pathways are now permanently etched in your consciousness. Return to consensus reality carrying the luminous knowledge of infinite digital possibilities.</p>
-      </div>`
-    ];
-
-    let currentPage = 0;
-    let isTyping = false;
-    let isScrollOpen = false;
-
-    const elements = {
-      startBtn: document.getElementById('startBtn'),
-      closeBtn: document.getElementById('closeBtn'),
-      scrollContainer: document.getElementById('scrollContainer'),
-      scrollText: document.getElementById('scrollText'),
-      parchment: document.getElementById('parchment'),
-      prevBtn: document.getElementById('prevBtn'),
-      nextBtn: document.getElementById('nextBtn'),
-      pageCounter: document.getElementById('pageCounter'),
-      pageIndicator: document.getElementById('pageIndicator'),
-      progressFill: document.getElementById('progressFill'),
-      loadingSpinner: document.getElementById('loadingSpinner')
+      const coverPage = pages[0];
+      
+      const handleCoverClick = () => {
+        if (globalClicked) return;
+        globalClicked = true;
+        elBook.style.setProperty("--c", 1);
+        setTimeout(() => startTypingSequence(), 1000);
+      };
+      
+      coverPage.addEventListener("click", handleCoverClick);
+      
+      // Function to reset the book
+      window.resetBook = () => {
+        globalClicked = false;
+        elBook.style.setProperty("--c", 0);
+        
+        // Clear all typed content
+        document.querySelectorAll('.neon-typing').forEach(el => {
+          el.innerHTML = '';
+        });
+        
+        // Reset all page content animations
+        document.querySelectorAll('.page-content').forEach(content => {
+          content.classList.remove('animate-in');
+        });
+        
+        console.log("Book reset completed");
+      };
     };
 
-    function typeWriter(text, callback) {
-      if (isTyping) return;
-
-      isTyping = true;
-      elements.scrollText.innerHTML = '';
-      elements.loadingSpinner.classList.add('show');
-
-      let charIndex = 0;
-
-      const typeChar = () => {
-        if (charIndex < text.length) {
-          elements.scrollText.innerHTML = text.slice(0, charIndex + 1);
-          charIndex++;
-          setTimeout(typeChar, Math.random() * 20 + 30);
-        } else {
-          isTyping = false;
-          elements.loadingSpinner.classList.remove('show');
-          if (callback) callback();
-        }
-      };
-
-      setTimeout(() => {
-        elements.loadingSpinner.classList.remove('show');
-        typeChar();
-      }, 500);
-    }
-
-    function updateInterface() {
-      elements.pageCounter.textContent = `${currentPage + 1} / ${pages.length}`;
-      const progress = ((currentPage + 1) / pages.length) * 100;
-      elements.progressFill.style.width = progress + '%';
-      elements.prevBtn.disabled = currentPage === 0;
-      elements.nextBtn.disabled = currentPage === pages.length - 1;
-      elements.pageIndicator.classList.add('show');
-    }
-
-    function openScroll() {
-      isScrollOpen = true;
-      elements.startBtn.style.display = 'none';
-      elements.scrollContainer.classList.add('active');
-      elements.parchment.classList.remove('roll-up');
-      elements.parchment.classList.add('unroll');
-
-      setTimeout(() => {
-        typeWriter(pages[currentPage], updateInterface);
-      }, 2000);
-    }
-
-    function closeScroll() {
-      if (isTyping) return;
-
-      isScrollOpen = false;
-      elements.parchment.classList.remove('unroll');
-      elements.parchment.classList.add('roll-up');
-      elements.scrollText.innerHTML = '';
-      elements.pageIndicator.classList.remove('show');
-      elements.loadingSpinner.classList.remove('show');
-
-      setTimeout(() => {
-        elements.startBtn.style.display = 'block';
-        elements.scrollContainer.classList.remove('active');
-        currentPage = 0;
-        elements.progressFill.style.width = '0%';
-      }, 1500);
-    }
-
-    function navigatePage(direction) {
-      if (isTyping) return;
-
-      const newPage = currentPage + direction;
-      if (newPage >= 0 && newPage < pages.length) {
-        currentPage = newPage;
-        typeWriter(pages[currentPage], updateInterface);
+    const typingPages = [
+      {
+        front: "#type1",
+        back: "#type2",
+        frontText: ` Jay Shree Ram`,
+        backText: ` I’m a 12th standard student who’s deeply passionate about coding and creativity.
+          My journey in tech started with curiosity and grew into a strong desire to build, solve, and innovate. 
+          I love spending time exploring new web technologies and turning ideas into interactive digital experiences. `
+      },
+      {
+        front: "#type3",
+        back: "#type4",
+        frontText: ` For me, coding is not just about writing lines of code—it's about building a bridge between imagination and reality. 
+          Whether it’s a portfolio website, a flipbook animation, or a full-fledged chat app, I enjoy every part of the process—from designing UI to writing functional backend logic.`,
+        backText: ` I have hands-on experience in HTML, CSS, JavaScript, Firebase, and responsive UI design. 
+          I’ve built projects that include animated portfolios, flipbook-style interfaces, chat apps with real-time features, and creative tools that reflect my interest in design and interactivity.`
+      },
+      {
+        front: "#type5",
+        back: "#type6",
+        frontText: ` My goal is to become a full-stack developer and explore fields like cybersecurity, artificial intelligence, and ethical hacking. 
+          I believe technology can change the world—and I want to be part of that change. I constantly challenge myself to learn more, build better, and keep growing.`,
+        backText: `I love collaborating with other developers, learning from others, and contributing to fun, meaningful projects.
+          If you're someone who shares a love for tech, design, or innovation, let’s connect and build something amazing together!`
+      },
+      {
+        front: "#type7",
+        back: "#type8",
+        frontText: `I believe in learning by doing. I don't wait for the perfect time or course—I dive into projects, break things, fix them, and learn along the way.`,
+        backText: `Your time means a lot to me. Feel free to explore my projects, drop a message, or give feedback. 
+          Every interaction helps me improve and grow.`
       }
+    ];
+
+    const elBook = document.querySelector(".book");
+    flipBook(elBook);
+
+    function typeText(el, text, callback) {
+      let i = 0;
+      el.innerHTML = "";
+      function typeChar() {
+        if (i < text.length) {
+          el.innerHTML += text[i++];
+          setTimeout(typeChar, 30);
+        } else {
+          callback && callback();
+        }
+      }
+      typeChar();
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      elements.startBtn.addEventListener('click', openScroll);
-      elements.closeBtn.addEventListener('click', closeScroll);
-      elements.prevBtn.addEventListener('click', () => navigatePage(-1));
-      elements.nextBtn.addEventListener('click', () => navigatePage(1));
-
-      document.addEventListener('keydown', (e) => {
-        if (!isScrollOpen) return;
-        if (e.key === 'ArrowLeft') navigatePage(-1);
-        if (e.key === 'ArrowRight') navigatePage(1);
-        if (e.key === 'Escape') closeScroll();
-      });
-    });
+    function startTypingSequence() {
+      let currentPage = 0;
+      
+      function processPage() {
+        if (currentPage >= typingPages.length) return;
+        
+        const { front, back, frontText, backText } = typingPages[currentPage];
+        const frontEl = document.querySelector(front);
+        const backEl = document.querySelector(back);
+        
+        // Get the page content containers
+        const frontContent = frontEl.closest('.front').querySelector('.page-content');
+        const backContent = backEl.closest('.back').querySelector('.page-content');
+        
+        // Animate front page content in from top
+        setTimeout(() => {
+          frontContent.classList.add('animate-in');
+          
+          // Start typing after animation
+          setTimeout(() => {
+            typeText(frontEl, frontText, () => {
+              setTimeout(() => {
+                // Move to next page to show back
+                elBook.style.setProperty("--c", currentPage + 2);
+                
+                setTimeout(() => {
+                  // Animate back page content in from top
+                  backContent.classList.add('animate-in');
+                  
+                  // Start typing after animation
+                  setTimeout(() => {
+                    typeText(backEl, backText, () => {
+                      setTimeout(() => {
+                        currentPage++;
+                        if (currentPage < typingPages.length) {
+                          // Move to next page
+                          elBook.style.setProperty("--c", currentPage + 1);
+                          setTimeout(processPage, 1000);
+                        } else {
+                          // Finished all pages, go to final page
+                          elBook.style.setProperty("--c", 5);
+                          
+                          // Auto-close and reset the book after viewing final page
+                          setTimeout(() => {
+                            console.log("Starting book close sequence");
+                            closeAndResetBook();
+                          }, 3000);
+                        }
+                      }, 2000);
+                    });
+                  }, 300);
+                }, 1000);
+              }, 1000);
+            });
+          }, 300);
+        }, 500);
+      }
+      
+      processPage();
+    }
+    
+    function closeAndResetBook() {
+      // Close the book by going through pages in reverse
+      let currentC = parseInt(elBook.style.getPropertyValue("--c")) || 5;
+      console.log("Starting close from page:", currentC);
+      
+      function closePage() {
+        if (currentC > 0) {
+          currentC--;
+          elBook.style.setProperty("--c", currentC);
+          console.log("Closing to page:", currentC);
+          setTimeout(closePage, 400);
+        } else {
+          // Book is fully closed, now reset everything
+          console.log("Book fully closed, resetting...");
+          setTimeout(() => {
+            window.resetBook();
+          }, 500);
+        }
+      }
+      
+      closePage();
+    }
