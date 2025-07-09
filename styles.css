@@ -86,7 +86,8 @@ svg[height="0"] {
 
     .cover {
       background: radial-gradient(circle at 80% 20%, #00f2 0%, #002 100%),
-                  url("https://picsum.photos/id/984/800/900") center / cover no-repeat;
+                  url("https://raw.githubusercontent.com/CodeCr4cker/developer/main/images/cover.jpg
+") center / cover no-repeat;
       color: #0ff;
       text-shadow: 0 0 10px #0ff;
     }
