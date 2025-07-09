@@ -161,7 +161,7 @@ svg[height="0"] {
     /* ↓↓↓ Responsive font and layout for small screens ↓↓↓ */
     @media (max-width: 768px) {
       #about * {
-        font-size: 0.9rem;
+        font-size: 0.5rem;
       }
 
       .book {
