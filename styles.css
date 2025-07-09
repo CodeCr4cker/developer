@@ -47,6 +47,9 @@ svg[height="0"] {
       translate: calc(min(var(--c), 1) * 50%) 0%;
       rotate: 1 0 0 20deg;
     }
+    .page *{
+      font-size: 1.2rem;
+    }
 
     .page {
       --thickness: 4;
@@ -83,16 +86,25 @@ svg[height="0"] {
       translate: -100% 0;
       rotate: 0 1 0 180deg;
     }
-    .cov{
-      z-index: +1;
-    }
-
     .cover {
-      background: radial-gradient(circle at 80% 20%, #00f2 0%, #002 100%);
-      /* background-image: url("https://raw.githubusercontent.com/CodeCr4cker/developer/main/images/cover.jpg") center / cover no-repeat; */
-      color: #0ff;
-      text-shadow: 0 0 10px #0ff;
-    }
+  position: relative;
+}
+
+.cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cover-text {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  color: rgb(0, 255, 221);
+  text-shadow: 0 0 10px rgb(0, 255, 179);
+  z-index: 2;
+}
 
     .page {
       counter-reset: page -1;
@@ -164,7 +176,7 @@ svg[height="0"] {
     /* ↓↓↓ Responsive font and layout for small screens ↓↓↓ */
     @media (max-width: 768px) {
       #about * {
-        font-size: 0.5rem;
+        font-size: 0.6rem;
       }
 
       .book {
